@@ -1,316 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Display Pages</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-    <link href="./dist/css/tabler.min.css" rel="stylesheet"/>
-  </head>
-  <body>
-    <h1 style="text-align: center; margin-bottom: 2em; font-family: 'Montserrat' ">All pages</h1>
-    <div id="app">
-      <div class="grid">
-        <a  v-for="(page,index) in pages" :key="index" :href="page.link">
-          <div class="grid-item">
-            <div>
-              <p class="number">{{index + 1}}</p>
-              <p>{{page.pageName}}</p>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Display Pages</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+		<link href="./dist/css/tabler.min.css" rel="stylesheet" />
+	</head>
+	<body>
+		<h1
+			style="
+				text-align: center;
+				margin-bottom: 2em;
+				font-family: 'Montserrat';
+			"
+		>
+			All pages
+		</h1>
+		<div id="app">
+			<div class="grid">
+				<a v-for="(page,index) in pages" :key="index" :href="page.link">
+					<div class="grid-item" :class="page.status">
+						<div>
+							<p class="number">{{index + 1}}</p>
+							<p>{{page.pageName}}</p>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<style>
+			body {
+				padding-top: 2em;
+				background-color: #0e0e0e;
+				color: white;
+			}
+			.grid {
+				display: grid;
+				place-items: center;
+				grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+				gap: 20px;
+			}
+
+			.grid-item {
+				width: 150px;
+				height: 150px;
+				display: grid;
+				place-items: center;
+				font-size: 12px;
+				font-weight: 500px;
+				color: white;
+				text-align: center;
+				background-color: rgba(235, 235, 235, 0.212);
+				border: 0.5px solid rgba(255, 255, 255, 0.205);
+			}
+			.grid-item p {
+				font-family: var(--tblr-font-sans-serif);
+			}
+
+			.number {
+				font-weight: 600;
+				font-size: 20px;
+			}
+
+			a {
+				text-decoration: none !important;
+			}
+
+			.done {
+				background-color: rgb(0, 252, 0);
+				color: black !important;
+			}
+
+			body::-webkit-scrollbar {
+				width: 12px; /* width of the entire scrollbar */
+			}
+
+			body::-webkit-scrollbar-track {
+				background: #0e0e0e; /* color of the tracking area */
+			}
+
+			body::-webkit-scrollbar-thumb {
+				background-color: rgb(0, 252, 0); /* color of the scroll thumb */
+				border-radius: 20px; /* roundness of the scroll thumb */
+				border: 5px solid rgb(0, 252, 0); /* creates padding around scroll thumb */
+			}
+		</style>
+
+		<script lang="javascript">
+			  let arr = [
+			      {
+			          link: 'accordion.html',
+			          pageName: 'accordion',
+                      status: 'done'
+			      },
+			      {
+			          link: 'activity.html',
+			          pageName: 'activity',
+                      status: 'done'
+			      },
+			      {
+			          link: 'auth-lock.html',
+			          pageName: 'auth-lock',
+                      status: 'done'
+			      },
+			      {
+			          link: 'blank.html',
+			          pageName: 'blank',
+                      status: 'done'
+			      },
+			      {
+			          link: 'buttons.html',
+			          pageName: 'buttons',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'cards-masonry.html',
+			          pageName: 'cards-masonry',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'cards.html',
+			          pageName: 'cards',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'carousel.html',
+			          pageName: 'carousel',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'changelog.html',
+			          pageName: 'changelog',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'charts.html',
+			          pageName: 'charts',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'colors.html',
+			          pageName: 'colors',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'docs.html',
+			          pageName: 'docs',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'dropdowns.html',
+			          pageName: 'dropdowns',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'empty.html',
+			          pageName: 'empty',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'error-404.html',
+			          pageName: 'error-404',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'error-500.html',
+			          pageName: 'error-500',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'error-maintenance.html',
+			          pageName: 'error-maintenance',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'forgot-password.html',
+			          pageName: 'forgot-password',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'form-elements.html',
+			          pageName: 'form-elements',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'gallery.html',
+			          pageName: 'gallery',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'home.html',
+			          pageName: 'home',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'icons.html',
+			          pageName: 'icons',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'invoice.html',
+			          pageName: 'invoice',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'layout-combo.html',
+			          pageName: 'layout-combo',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'layout-condensed-dark.html',
+			          pageName: 'layout-condensed-dark',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'layout-condensed.html',
+			          pageName: 'layout-condensed',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'layout-dark.html',
+			          pageName: 'layout-dark',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'layout-fluid-vertical.html',
+			          pageName: 'layout-fluid-vertical',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'layout-fluid.html',
+			          pageName: 'layout-fluid',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'layout-horizontal.html',
+			          pageName: 'layout-horizontal',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'layout-navbar-dark.html',
+			          pageName: 'layout-navbar-dark',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'layout-navbar-overlap.html',
+			          pageName: 'layout-navbar-overlap',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'layout-navbar-sticky.html',
+			          pageName: 'layout-navbar-sticky',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'layout-rtl.html',
+			          pageName: 'layout-rtl',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'layout-vertical-right.html',
+			          pageName: 'layout-vertical-right',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'layout-vertical-transparent.html',
+			          pageName: 'layout-vertical-transparent',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'layout-vertical.html',
+			          pageName: 'layout-vertical',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'license.html',
+			          pageName: 'license',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'lists.html',
+			          pageName: 'lists',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'map-fullsize.html',
+			          pageName: 'map-fullsize',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'maps.html',
+			          pageName: 'maps',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'markdown.html',
+			          pageName: 'markdown',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'modals.html',
+			          pageName: 'modals',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'music.html',
+			          pageName: 'music',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'navigation.html',
+			          pageName: 'navigation',
+                      status: 'done'
+			      },
+			      {
+			          link: 'pagination.html',
+			          pageName: 'pagination',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'playground.html',
+			          pageName: 'playground',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'pricing.html',
+			          pageName: 'pricing',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'search-results.html',
+			          pageName: 'search-results',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'sign-in.html',
+			          pageName: 'sign-in',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'sign-up.html',
+			          pageName: 'sign-up',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'skeleton.html',
+			          pageName: 'skeleton',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'tables.html',
+			          pageName: 'tables',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'tabs.html',
+			          pageName: 'tabs',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'terms-of-service.html',
+			          pageName: 'terms-of-service',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'typography.html',
+			          pageName: 'typography',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'users.html',
+			          pageName: 'users',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'widgets.html',
+			          pageName: 'widgets',
+                      status: 'pending'
+			      },
+			      {
+			          link: 'wizard.html',
+			          pageName: 'wizard',
+                      status: 'pending'
+			      },
 
 
-    <style>
-
-      body {
-        padding-top: 2em;
-        background-color: #0e0e0e;
-        color: white;
-      }
-      .grid {
-        display: grid;
-        place-items: center;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 20px;
-      }
-
-      .grid-item {
-        width: 150px;
-        height: 150px;
-        display: grid;
-        place-items: center;
-        font-size: 12px;
-        font-weight: 500px;
-        color: white;
-        text-align: center;
-        background-color: rgba(235, 235, 235, 0.212);
-        border: .5px solid rgba(255, 255, 255, 0.205);
-      }
-      .grid-item p {
-        font-family: var(--tblr-font-sans-serif);
-      }
-
-      .number {
-        font-weight: 600;
-        font-size: 20px;
-      }
-
-      a {
-        text-decoration: none !important;
-      }
-    </style>
-
-    <script lang="javascript">
-        let arr = [
-            {
-                link: 'accordion.html',
-                pageName: 'accordion',
-            },
-            {
-                link: 'activity.html',
-                pageName: 'activity',
-            },
-            {
-                link: 'auth-lock.html',
-                pageName: 'auth-lock',
-            },
-            {
-                link: 'blank.html',
-                pageName: 'blank',
-            },
-            {
-                link: 'buttons.html',
-                pageName: 'buttons',
-            },
-            {
-                link: 'cards-masonry.html',
-                pageName: 'cards-masonry',
-            },
-            {
-                link: 'cards.html',
-                pageName: 'cards',
-            },
-            {
-                link: 'carousel.html',
-                pageName: 'carousel',
-            },
-            {
-                link: 'changelog.html',
-                pageName: 'changelog',
-            },
-            {
-                link: 'charts.html',
-                pageName: 'charts',
-            },
-            {
-                link: 'colors.html',
-                pageName: 'colors',
-            },
-            {
-                link: 'docs.html',
-                pageName: 'docs',
-            },
-            {
-                link: 'dropdowns.html',
-                pageName: 'dropdowns',
-            },
-            {
-                link: 'empty.html',
-                pageName: 'empty',
-            },
-            {
-                link: 'error-404.html',
-                pageName: 'error-404',
-            },
-            {
-                link: 'error-500.html',
-                pageName: 'error-500',
-            },
-            {
-                link: 'error-maintenance.html',
-                pageName: 'error-maintenance',
-            },
-            {
-                link: 'forgot-password.html',
-                pageName: 'forgot-password',
-            },
-            {
-                link: 'form-elements.html',
-                pageName: 'form-elements',
-            },
-            {
-                link: 'gallery.html',
-                pageName: 'gallery',
-            },
-            {
-                link: 'home.html',
-                pageName: 'home',
-            },
-            {
-                link: 'icons.html',
-                pageName: 'icons',
-            },
-            {
-                link: 'invoice.html',
-                pageName: 'invoice',
-            },
-            {
-                link: 'layout-combo.html',
-                pageName: 'layout-combo',
-            },
-            {
-                link: 'layout-condensed-dark.html',
-                pageName: 'layout-condensed-dark',
-            },
-            {
-                link: 'layout-condensed.html',
-                pageName: 'layout-condensed',
-            },
-            {
-                link: 'layout-dark.html',
-                pageName: 'layout-dark',
-            },
-            {
-                link: 'layout-fluid-vertical.html',
-                pageName: 'layout-fluid-vertical',
-            },
-            {
-                link: 'layout-fluid.html',
-                pageName: 'layout-fluid',
-            },
-            {
-                link: 'layout-horizontal.html',
-                pageName: 'layout-horizontal',
-            },
-            {
-                link: 'layout-navbar-dark.html',
-                pageName: 'layout-navbar-dark',
-            },
-            {
-                link: 'layout-navbar-overlap.html',
-                pageName: 'layout-navbar-overlap',
-            },
-            {
-                link: 'layout-navbar-sticky.html',
-                pageName: 'layout-navbar-sticky',
-            },
-            {
-                link: 'layout-rtl.html',
-                pageName: 'layout-rtl',
-            },
-            {
-                link: 'layout-vertical-right.html',
-                pageName: 'layout-vertical-right',
-            },
-            {
-                link: 'layout-vertical-transparent.html',
-                pageName: 'layout-vertical-transparent',
-            },
-            {
-                link: 'layout-vertical.html',
-                pageName: 'layout-vertical',
-            },
-            {
-                link: 'license.html',
-                pageName: 'license',
-            },
-            {
-                link: 'lists.html',
-                pageName: 'lists',
-            },
-            {
-                link: 'map-fullsize.html',
-                pageName: 'map-fullsize',
-            },
-            {
-                link: 'maps.html',
-                pageName: 'maps',
-            },
-            {
-                link: 'markdown.html',
-                pageName: 'markdown',
-            },
-            {
-                link: 'modals.html',
-                pageName: 'modals',
-            },
-            {
-                link: 'music.html',
-                pageName: 'music',
-            },
-            {
-                link: 'navigation.html',
-                pageName: 'navigation',
-            },
-            {
-                link: 'pagination.html',
-                pageName: 'pagination',
-            },
-            {
-                link: 'playground.html',
-                pageName: 'playground',
-            },
-            {
-                link: 'pricing.html',
-                pageName: 'pricing',
-            },
-            {
-                link: 'search-results.html',
-                pageName: 'search-results',
-            },
-            {
-                link: 'sign-in.html',
-                pageName: 'sign-in',
-            },
-            {
-                link: 'sign-up.html',
-                pageName: 'sign-up',
-            },
-            {
-                link: 'skeleton.html',
-                pageName: 'skeleton',
-            },
-            {
-                link: 'tables.html',
-                pageName: 'tables',
-            },
-            {
-                link: 'tabs.html',
-                pageName: 'tabs',
-            },
-            {
-                link: 'terms-of-service.html',
-                pageName: 'terms-of-service',
-            },
-            {
-                link: 'typography.html',
-                pageName: 'typography',
-            },
-            {
-                link: 'users.html',
-                pageName: 'users',
-            },
-            {
-                link: 'widgets.html',
-                pageName: 'widgets',
-            },
-            {
-                link: 'wizard.html',
-                pageName: 'wizard',
-            },
-            
-           
-        ]
-      var app = new Vue({
-        el: "#app",
-        data: {
-          pages: arr
-        },
-      });
-    </script>
-  </body>
+			  ]
+			var app = new Vue({
+			  el: "#app",
+			  data: {
+			    pages: arr
+			  },
+			});
+		</script>
+	</body>
 </html>
